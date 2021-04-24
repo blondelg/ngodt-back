@@ -4,9 +4,9 @@ services:
     build:
       context: .
       dockerfile: config/docker/backend/Dockerfile
-    #command: /venv/bin/jupyter notebook --ip 0.0.0.0 --no-browser --allow-root
-    #ports:
-    #  - "8888:8888"
+    command: ./manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
     volumes:
       - .:/app
     env_file:
