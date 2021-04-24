@@ -14,7 +14,7 @@ services:
     image: backend_server
     depends_on:
       - database
-    command: ./manage.py runserver 0.0.0.0:8000
+    command: scripts/start.sh
     ports:
       - "8000:8000"
     volumes:
