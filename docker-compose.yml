@@ -1,0 +1,13 @@
+version: "3.3"
+services:
+  server:
+    build:
+      context: .
+      dockerfile: config/docker/server/Dockerfile
+    #command: /venv/bin/jupyter notebook --ip 0.0.0.0 --no-browser --allow-root
+    #ports:
+    #  - "8888:8888"
+    volumes:
+      - .:/app
+    env_file:
+      - config/env/.env

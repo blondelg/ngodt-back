@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Command dictionnary
+declare -A commands
+commands['build']="docker-compose build"
+commands['start']="docker-compose up -d"
+commands['stop']="docker-compose stop"
+commands['tu']="docker-compose exec server /venv/bin/python -m unittest"
+commands['tty']="docker-compose exec server /bin/bash"
+commands['logs']="docker-compose logs"
+commands['shell']="docker-compose exec server /venv/bin/ipython3"
+#commands['']=
+
+if [ -v commands[$1] ]; 
+then
+    ${commands[$1]}
+else
+    echo "build: build containers"
+    echo "start: start project"
+fi
