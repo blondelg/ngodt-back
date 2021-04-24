@@ -10,6 +10,9 @@ commands['bash']="docker-compose exec backend /bin/bash"
 commands['logs']="docker-compose logs"
 commands['shell']="docker-compose exec server /venv/bin/ipython3"
 commands['stop-all']="docker stop $(docker ps -q)"
+commands['manage']="docker-compose exec backend /app/manage.py $2 $3 $4 $5"
+commands['migrate']="docker-compose exec backend /app/manage.py migrate $2 $3 $4"
+commands['createsuperuser']="docker-compose exec backend /app/manage.py createsuperuser"
 #commands['']=
 
 if [ -v commands[$1] ]; 
@@ -21,4 +24,5 @@ else
     echo "bash: start bash for backend"
     echo "stop: stop project's container"
     echo "stop-all: stop all docker containers"
+    echo "manage: django's manage.py"
 fi
