@@ -6,9 +6,10 @@ commands['build']="docker-compose build"
 commands['start']="docker-compose up -d"
 commands['stop']="docker-compose stop"
 commands['tu']="docker-compose exec server /venv/bin/python -m unittest"
-commands['tty']="docker-compose exec server /bin/bash"
+commands['bash']="docker-compose exec backend /bin/bash"
 commands['logs']="docker-compose logs"
 commands['shell']="docker-compose exec server /venv/bin/ipython3"
+commands['stop-all']="docker stop $(docker ps -q)"
 #commands['']=
 
 if [ -v commands[$1] ]; 
@@ -17,4 +18,7 @@ then
 else
     echo "build: build containers"
     echo "start: start project"
+    echo "bash: start bash for backend"
+    echo "stop: stop project's container"
+    echo "stop-all: stop all docker containers"
 fi
