@@ -3,7 +3,7 @@ services:
   server:
     build:
       context: .
-      dockerfile: config/docker/server/Dockerfile
+      dockerfile: config/docker/backend/Dockerfile
     #command: /venv/bin/jupyter notebook --ip 0.0.0.0 --no-browser --allow-root
     #ports:
     #  - "8888:8888"
