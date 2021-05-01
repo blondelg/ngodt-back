@@ -19,11 +19,11 @@ if [ -v commands[$1] ];
 then
     ${commands[$1]}
 else
-    echo "build: build containers"
-    echo "start: start project"
-    echo "shell: start ipython shell"
-    echo "bash: start bash for backend"
-    echo "stop: stop project's container"
-    echo "stop-all: stop all docker containers"
-    echo "manage: django's manage.py"
+    echo "build:       build containers"
+    echo "start:       start project"
+    echo "shell:       start ipython shell"
+    echo "bash:        start bash for backend"
+    echo "stop:        stop project's container"
+    echo "stop-all:    stop all docker containers"
+    echo "manage:      django's manage.py"
 fi
