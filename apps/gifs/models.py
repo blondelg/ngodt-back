@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.crypto import get_random_string
+import os
 
 
 GIF_STATUS = (
@@ -21,7 +22,13 @@ class Gif(models.Model):
         if not self.uid:
             self.uid = get_random_string(length=32)
             self._rename()
-        super().save(*args, **kwargs) 
+        super().save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        filepath = 
+        super().delete(*args, **kwargs)
+        if os.path.exists(filepath):
+            os.remove(filepath)
 
     def _rename(self):
         self.gif.name = f"{self.uid}.gif"
