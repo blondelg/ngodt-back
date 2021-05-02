@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_extensions',
     'apps.gifs',
+    'apps.tags',
 ]
 
 MIDDLEWARE = [

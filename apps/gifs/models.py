@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.crypto import get_random_string
 import os
+from apps.tags.models import Tag
 
 
 GIF_STATUS = (
@@ -10,10 +11,13 @@ GIF_STATUS = (
 )
 
 class Gif(models.Model):
-    title = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
     status = models.CharField(max_length=1, choices=GIF_STATUS, default='P')
     uid = models.CharField(max_length=32, blank=True)
     gif = models.ImageField(upload_to='gifs/%Y/%m')
+    tags = models.ManyToManyField(Tag, blank=True)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
 
     class Meta:
         constraints = [models.UniqueConstraint(fields=['uid'], name='unique-uid')]
