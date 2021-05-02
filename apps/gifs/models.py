@@ -25,7 +25,7 @@ class Gif(models.Model):
         super().save(*args, **kwargs)
 
     def delete(self, *args, **kwargs):
-        filepath = 
+        filepath = self.gif.path
         super().delete(*args, **kwargs)
         if os.path.exists(filepath):
             os.remove(filepath)
