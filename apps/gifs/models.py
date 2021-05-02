@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.crypto import get_random_string
 import os
 from apps.tags.models import Tag
+from django.contrib.auth.models import User
 
 
 GIF_STATUS = (
@@ -16,6 +17,7 @@ class Gif(models.Model):
     uid = models.CharField(max_length=32, blank=True)
     gif = models.ImageField(upload_to='gifs/%Y/%m')
     tags = models.ManyToManyField(Tag, blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
