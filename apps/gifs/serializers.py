@@ -1,14 +1,10 @@
-from django.contrib.auth.models import User, Group
+from apps.gifs.models import Gif
 from rest_framework import serializers
+from apps.tags.serializers import TagSerializer
 
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class GifSerializer(serializers.HyperlinkedModelSerializer):
+    tags = TagSerializer(read_only=True, many=True)
     class Meta:
-        model = User
-        fields = ['url', 'username', 'email', 'groups']
-
-
-class GroupSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Group
-        fields = ['url', 'name']
+        model = Gif
+        fields = ['name', 'gif', 'tags']

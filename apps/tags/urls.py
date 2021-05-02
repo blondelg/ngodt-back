@@ -2,12 +2,12 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 
-from apps.gifs.views import GifViewSet
+from apps.tags.views import TagViewSet
 
 router = routers.DefaultRouter()
-router.register(r'gifs', GifViewSet)
+router.register(r'tags', TagViewSet)
 
-app_name = "gifs"
+app_name = "tags"
 
 urlpatterns = [
     path('', include(router.urls)),
