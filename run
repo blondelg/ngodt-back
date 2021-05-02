@@ -8,11 +8,12 @@ commands['stop']="docker-compose stop"
 commands['tu']="docker-compose exec server /venv/bin/python -m unittest"
 commands['bash']="docker-compose exec backend /bin/bash"
 commands['logs']="docker-compose logs $2"
-commands['shell']="docker-compose exec backend /venv/bin/ipython3"
+commands['shell']="docker-compose exec backend /app/manage.py shell_plus"
 commands['stop-all']="docker stop $(docker ps -q)"
 commands['manage']="docker-compose exec backend /app/manage.py $2 $3 $4 $5"
 commands['migrate']="docker-compose exec backend /app/manage.py migrate $2 $3 $4"
 commands['createsuperuser']="docker-compose exec backend /app/manage.py createsuperuser"
+commands['startapp']="docker-compose exec backend /app/manage.py "
 #commands['']=
 
 if [ -v commands[$1] ]; 
